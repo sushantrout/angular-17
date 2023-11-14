@@ -1,0 +1,26 @@
+<div class="row">
+  @for(product of products; track $index) {
+  <div class="col-3">
+    <div class="card mb-4" style="height: 450px;">
+      <!-- Adjust col-lg-3 and col-md-6 based on your design -->
+      <img src="{{product.thumbnail}}" alt="Card image cap" class="card-img-top" height="200">
+      <div class="card-body">
+        @switch ($index) {
+          @case (5) {
+            <h5 class="card-title" style="background-color: green;">{{product.title}}</h5>
+          }
+          @default {
+            <h5 class="card-title">{{product.title}}</h5>
+          }
+        }
+        <p class="card-text">{{product.description}}</p>
+        @if(product.price < 500) {
+          <div class="price-tag">₹ {{product.price}}</div>
+        } @else {
+          <div class="price-tag" style="background-color: red;">₹ {{product.price}}</div>
+        }
+      </div>
+    </div>
+  </div>
+  }
+</div>
